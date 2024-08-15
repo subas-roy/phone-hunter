@@ -6,13 +6,25 @@ const loadPhone = async(searchText) => {
 }
 
 const displayPhones = phones => {
-  // console.log(phones)
+  // console.log(phones.length)
   
   // 1. get the container
   const phoneContainer = document.getElementById('phone-container');
   // clear phone container cards before adding new card
   phoneContainer.textContent = '';
-  
+
+  // display show all button if there are more than 12 phones
+  const showAllContainer = document.getElementById('show-all-container');
+  if(phones.length > 12){
+    showAllContainer.classList.remove('hidden')
+  }
+  else{
+    showAllContainer.classList.add('hidden')
+  }
+
+  // display first 12 phones only
+  phones = phones.slice(0,12);
+
   phones.forEach( phone => {
     // 2. create a div
     const phoneCard = document.createElement('div');
