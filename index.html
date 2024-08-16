@@ -31,6 +31,25 @@
          <button onclick="handleShowAll()" class="btn btn-accent">Show All</button>
        </div>
     </section>
+
+    <!-- show detail modal -->
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="handle_show_detail_modal.showModal()">open modal</button> -->
+    <dialog id="handle_show_detail_modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <h3 id="show-detail-phone-name" class="text-lg font-bold"></h3>
+        <div id="show-detail-container">
+          <p><span></span></p>
+        </div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+    
   </main>
 
   <footer>
