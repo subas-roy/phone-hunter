@@ -1,4 +1,4 @@
-const loadPhone = async(searchText="iphone", isShowAll) => {
+const loadPhone = async(searchText, isShowAll) => {
   const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
   const data = await res.json();
   const phones = data.data
@@ -70,13 +70,14 @@ const showPhoneDetail = (phone) => {
   const showDetailContainer = document.getElementById('show-detail-container');
   showDetailContainer.innerHTML = `
     <img src="${phone.image}" alt="">
-    <p><span class="font-bold">GPS: </span>${phone?.mainFeatures?.storage}</p>
+    <p><span class="font-bold">Storage: </span>${phone?.mainFeatures?.storage}</p>
     <p><span class="font-bold">Display Size: </span>${phone?.mainFeatures?.displaySize}</p>
     <p><span class="font-bold">Cipset: </span>${phone?.mainFeatures?.chipSet}</p>
-    <p><span class="font-bold">Memory:</span>${phone?.mainFeatures?.memory}</p>
+    <p><span class="font-bold">Memory: </span>${phone?.mainFeatures?.memory}</p>
     <p><span class="font-bold">Slug: </span>${phone.slug}</p>
     <p><span class="font-bold">Release Date: </span>${phone.releaseDate}</p>
     <p><span class="font-bold">Brand: </span>${phone.brand}</p>
+    <p><span class="font-bold">GPS: </span>${phone.others?.GPS ? phone.others.GPS : 'NO GPS'}</p>
   `;
   handle_show_detail_modal.showModal()
 }
@@ -105,4 +106,4 @@ const handleShowAll = () => {
   handleSearch(true)
 }
 
-loadPhone()
+// loadPhone()
